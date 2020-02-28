@@ -5,6 +5,11 @@ spring:
       
 server:
   port: 9001
+  
+spring:
+  profiles: dev
+  application:
+    name: eurake1
 
 eureka:
   instance:
