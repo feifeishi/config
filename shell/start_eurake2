@@ -1,0 +1,54 @@
+#!/bin/bash
+dir=$(pwd)
+logdir=/software/log/
+
+start() {
+	echo start..
+	if [ -f eurake2.pid ];then
+		echo 系统已启动，不能重复启动。如果确实没有重复启动，请删除eurake2.pid文件后在启动
+		return
+	fi	
+
+	if [ ! -d $logdir/log-eurake2 ];then
+		mkdir $logdir/log-eurake2
+	fi
+	
+	java -jar eurake2-0.0.1-SNAPSHOT.jar >> $logdir/log-eurake2/stdout.log &
+	echo $!>eurake2.pid
+	echo started
+}
+
+
+stop() {
+	if [ ! -f eurake2.pid ]; then
+		return
+	fi
+	
+	local pid=$(cat eurake2.pid)
+	echo "pid:$pid"
+	kill $pid
+	rm eurake2.pid
+	
+	local i=0
+	while [ $i -lt 65 ]; do
+		i=$((i+1))
+		sleep 1
+		if [ ! -z "$(ps ux | grep -v grep | grep $pid)"];then
+			echo stopping...
+		else
+			break
+		fi
+	done
+	
+	echo Stopped.		
+}
+
+if [ $1 = start ]
+then
+	start
+fi
+
+if [ $1 = stop ]
+then
+	stop
+fi
