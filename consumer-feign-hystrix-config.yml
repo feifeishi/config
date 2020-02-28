@@ -1,0 +1,17 @@
+server: 
+  port: 7003
+
+feign: 
+  hystrix: 
+    enabled: true
+    
+eureka:
+  client:
+    register-with-eureka: false
+    service-url: 
+      defaultZone: http://111.229.127.200:9003/eureka/,http://111.229.127.200:9002/eureka/,http://111.229.127.200:9001/eureka/
+
+spring:
+  banner:
+    location:
+      banner.txt
