@@ -1,5 +1,16 @@
 spring:
+  profiles:
+    active:
+      - dev
+
+---     
+server:
+  port: 9002
+  
+spring:
   profiles: dev
+  application:
+    name: eurake1
 
 eureka:
   instance:
@@ -10,5 +21,3 @@ eureka:
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       defaultZone: http://127.0.0.1:9001/eureka/,http://127.0.0.1:9003/eureka/
-server:
-  port: 9002
