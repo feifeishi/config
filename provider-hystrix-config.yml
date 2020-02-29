@@ -10,20 +10,34 @@ mybatis:
 spring: 
   application: 
     name: provider                         					 #微服务的名字
+    
   datasource: 
     driver-class-name: org.gjt.mm.mysql.Driver                # mysql驱动包      
     type: com.alibaba.druid.pool.DruidDataSource              # 当前数据源操作类型
     url: "jdbc:mysql://111.229.127.200:3306/sod?useUnicode=true&characterEncoding=utf-8&useSSL=false"                    # 数据库名称
     username: root
     password: root
-    dbcp2: 
-      initial-size: 5                                         # 初始化连接数
-      max-total: 5                                            # 最大连接数
-      max-wait-millis: 200                                    # 等待连接获取的最大超时时间
-      min-idle: 5                                             # 数据库连接池的最小维持连接数
+    
+	#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+	#如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
+	#则导入 log4j 依赖即可，Maven 地址： https://mvnrepository.com/artifact/log4j/log4j
+	filters: stat,wall,log4j
+	initialSize:2
+	maxActive:300
+	maxWait:60000
+	timeBetweenEvictionRunsMillis:60000
+	minEvictableIdleTimeMillis:300000
+	validationQuery:SELECT 1
+	testWhileIdle:true
+	testOnBorrow:false
+	testOnReturn:false
+	poolPreparedStatements:false
+	maxPoolPreparedStatementPerConnectionSize:200
+      
   banner:
     location:
       banner.txt
+      
   boot:
     admin:
       client:
