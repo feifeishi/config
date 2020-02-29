@@ -29,7 +29,7 @@ spring:
 	testOnReturn: false
 	poolPreparedStatements: false
 	maxPoolPreparedStatementPerConnectionSize: 200
-      
+
   banner:
     location:
       banner.txt
