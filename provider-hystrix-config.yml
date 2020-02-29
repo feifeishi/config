@@ -39,8 +39,8 @@ spring:
       enabled: true #actuator是否需要安全保证
       roles: SUPERUSER
 
-  autoconfigure:
-    exclude:org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  #autoconfigure:
+    #exclude:org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
 
 eureka:
   client:
