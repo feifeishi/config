@@ -24,10 +24,20 @@ spring:
   banner:
     location:
       banner.txt
-
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8090/" #spring admin server访问地址
+        username: admin #spring admin server用户名
+        password: 123456 #spring admin server密码
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name} #客户端元数据访问用户
+            user.password: ${spring.boot.admin.client.password} #客户端元数据访问密码
+            
 security:
   user:
-    name: admin  #鉴权账号
+    name: feifeishi  #鉴权账号
     password: 123456    #鉴权密码
   basic:
     enabled: true
@@ -38,9 +48,6 @@ management:
   security:
     enabled: true #actuator是否需要安全保证
     roles: SUPERUSER
-
-  #autoconfigure:
-    #exclude:org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
 
 eureka:
   client:
