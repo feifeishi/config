@@ -18,9 +18,9 @@ spring:
     username: root
     password: root	
 	#filters: stat,wall,log4j #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
-	initialSize: 2
-	maxActive: 300
-	maxWait: 60000
+	#initialSize: 2
+	#maxActive: 300
+	#maxWait: 60000
 	#timeBetweenEvictionRunsMillis: 60000
 	#minEvictableIdleTimeMillis: 300000
 	#validationQuery: SELECT 1
