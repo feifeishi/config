@@ -27,7 +27,7 @@ spring:
   boot:
     admin:
       client:
-        url: "http://localhost:8090/" #spring admin server访问地址
+        url: http://localhost:8090/ #spring admin server访问地址
         username: admin #spring admin server用户名
         password: 123456 #spring admin server密码
         instance:
