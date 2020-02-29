@@ -10,7 +10,6 @@ mybatis:
 spring: 
   application: 
     name: provider                         					 #微服务的名字
-
   datasource: 
     driver-class-name: org.gjt.mm.mysql.Driver                # mysql驱动包      
     type: com.alibaba.druid.pool.DruidDataSource              # 当前数据源操作类型
@@ -22,8 +21,6 @@ spring:
       max-total: 5                                            # 最大连接数
       max-wait-millis: 200                                    # 等待连接获取的最大超时时间
       min-idle: 5                                             # 数据库连接池的最小维持连接数
-	
-
   banner:
     location:
       banner.txt
@@ -50,4 +47,3 @@ eureka:
   instance:
     instance-id: provider-hystrix								  #自定义服务名称信息
     prefer-ip-address: true                                   #访问路径可以显示IP地址
- 
