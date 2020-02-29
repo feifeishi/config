@@ -10,38 +10,29 @@ mybatis:
 spring: 
   application: 
     name: provider                         					 #微服务的名字
+    
   datasource: 
     driver-class-name: org.gjt.mm.mysql.Driver                # mysql驱动包      
     type: com.alibaba.druid.pool.DruidDataSource              # 当前数据源操作类型
     url: "jdbc:mysql://111.229.127.200:3306/sod?useUnicode=true&characterEncoding=utf-8&useSSL=false"                    # 数据库名称
     username: root
     password: root	
-	#filters: stat,wall,log4j #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
-	#initialSize: 2
-	#maxActive: 300
-	#maxWait: 60000
-	#timeBetweenEvictionRunsMillis: 60000
-	#minEvictableIdleTimeMillis: 300000
-	#validationQuery: SELECT 1
-	#testWhileIdle: true
-	#testOnBorrow: false
-	#testOnReturn: false
-	#poolPreparedStatements: false
-	#maxPoolPreparedStatementPerConnectionSize: 200      
+	filters: stat,wall,log4j #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+	initialSize: 2
+	maxActive: 300
+	maxWait: 60000
+	timeBetweenEvictionRunsMillis: 60000
+	minEvictableIdleTimeMillis: 300000
+	validationQuery: SELECT 1
+	testWhileIdle: true
+	testOnBorrow: false
+	testOnReturn: false
+	poolPreparedStatements: false
+	maxPoolPreparedStatementPerConnectionSize: 200
+      
   banner:
     location:
       banner.txt
-      
-  boot:
-    admin:
-      client:
-        url: "http://localhost:8890/" #spring admin server访问地址
-        username: admin #spring admin server用户名
-        password: 123456 #spring admin server密码
-        instance:
-          metadata:
-            user.name: ${security.user.name} #客户端元数据访问用户
-            user.password: ${spring.boot.admin.client.password} #客户端元数据访问密码
             
 security:
   user:
