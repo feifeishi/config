@@ -23,7 +23,7 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     testWhileIdle: true
-    validationQuery: SELECT 1
+    validationQuery: SELECT 1 FROM DUAL
     testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
@@ -43,7 +43,7 @@ spring:
       test-on-return: false
       # SQL查询,用来验证从连接池取出的连接,在将连接返回给调用者之前.
       #如果指定,则查询必须是一个SQL SELECT并且必须返回至少一行记录
-      validation-query: select 1
+      validation-query: SELECT 1 FROM DUAL
   banner:
     location:
       banner.txt
@@ -54,7 +54,7 @@ security:
     password: 123456    #鉴权密码
   basic:
     enabled: true
-    path: /admin    鉴权路径
+    path: /admin    #鉴权路径
 management:
   port: 8089 #actuator暴露接口使用的端口，为了和api接口使用的端口进行分离
   context-path: /admin #actuator暴露接口的前缀
