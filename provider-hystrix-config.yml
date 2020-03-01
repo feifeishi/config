@@ -33,7 +33,7 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true,druid.stat.slowSqlMills=500
-    druid:
+    dbcp2:
       # 指明是否在从池中取出连接前进行检验,如果检验失败, 则从池中去除连接并尝试取出另一个，
       #注意: 设置为true后如果要生效,validationQuery参数必须设置为非空字符串
       test-on-borrow: false
